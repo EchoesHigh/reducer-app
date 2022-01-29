@@ -1,0 +1,24 @@
+To do list Contacts App - 22/01/2022:
+
+-Set Media Query CSS								DONE
+-Implement static/fixed condition for footer (based on media query)		DONE
+-Change colors to black/yellow							DONE
+-Set styles for Contacts.jsx & ContactTable.jsx					DONE
+-Add Dark Mode									DONE
+-Clean inputs once the user clicks "add"					DONE
+-Add EnterKey functionality							DONE
+-Set Media Query CSS for the ContactTable.jsx and the circles (Mobile)		DONE
+-Catch error "Uncaught TypeError: Cannot read properties of null 
+(reading 'value')" when trying to add a contact without typing 
+something on the inputs
+-Display alert if an input is not filled
+
+Optionals (?):
+
+-Add # of contact row after ID row						DONE
+-Implement "modify" button and function 
+(based on # of contact / position # in the array)
+-Implement a "WhatsApp" button/icon to open a conversation to that number 	DONE
+-Make aesthetic number value shown						DONE
+-Implement a sort by functionality to order the contact table
+-Set Media Query CSS for Monitors
