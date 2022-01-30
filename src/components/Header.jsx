@@ -7,7 +7,7 @@ const Header = ({ state, dispatch, theme, toggleTheme }) => {
 
   return (
     <nav className="navbar navbar-dark text-left contacts__header">
-      <div className="container-fluid px-4 mx-0 w-25 contacts__header-title_container">
+      <div className="container-fluid px-4 mx-0 w-50 contacts__header-title_container">
         <div className="contacts__header-icon_container">
           {theme === "light" ? (
             <i

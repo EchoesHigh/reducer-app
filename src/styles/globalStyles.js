@@ -33,8 +33,12 @@ export const GlobalStyle = createGlobalStyle`
   .table>:not(caption)>*>* {
     border-bottom-width: 0 !important;
   }
-  .contacts__table-data {
+  .contacts__table-data, .contacts__table-data_editable {
     color: ${({ theme }) => theme.tableData};
+    transition: all 0.5s linear;
+  }
+  .contacts__table-data_editable {
+    background-color: ${({ theme }) => theme.tableDataEditBgc};
     transition: all 0.5s linear;
   }
   .contacts__table-deletebtn {
@@ -78,6 +82,7 @@ export const lightTheme = {
   tableHoverC: "#212529 !important",
   tableHoverBgc: "rgba(0, 0, 0, 0.075) !important",
   tableData: "black",
+  tableDataEditBgc: "rgba(175, 175, 55, 0.25)",
   deleteBtnBgc: "#d62828",
   modifyBtnBgc: "#ffae00",
   waBtnBgc: "#aacc00",
@@ -93,6 +98,7 @@ export const darkTheme = {
   tableHoverC: "wheat !important",
   tableHoverBgc: "rgba(245, 222, 179, 0.075) !important",
   tableData: "wheat",
+  tableDataEditBgc: "rgba(255, 255, 255, 0.25)",
   deleteBtnBgc: "#570404",
   modifyBtnBgc: "#7c5500",
   waBtnBgc: "#526300",

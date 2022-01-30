@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { useData } from "../hooks/useData";
+import EditableRow from "./EditableRow";
+import ReadOnlyRow from "./ReadOnlyRow";
 
 const ContactTable = ({ contactos = [], dispatch }) => {
-  const [, , handleDelete] = useData(dispatch);
+  const [, , handleDelete, handleUpdate] = useData(dispatch);
+
+  const [editContactID, setEditContactID] = useState(null);
+
+  const handleEditClick = (e, contacto) => {
+    e.preventDefault();
+    setEditContactID(contacto.id);
+  };
+
+  const handleReadClick = (e) => {
+    e.preventDefault();
+    setEditContactID(null);
+  };
 
   return (
     <div>
@@ -20,37 +34,33 @@ const ContactTable = ({ contactos = [], dispatch }) => {
           <tbody>
             {contactos.map((contacto) => {
               const finalID = contacto.id.split("-");
+              console.log(finalID[0]);
+              console.log(contacto.id);
               const match = contacto.number.match(
                 /^(\d{2})(\d{2})(\d{4})(\d{4})$/
               );
               return (
-                <tr key={contacto.id}>
-                  <th>{contacto.pos}</th>
-                  <th className="contacts__table-data_ID">{finalID[0]}</th>
-                  <td>{contacto.name}</td>
-                  <td>{`(${match[1]}) ${match[2]} ${match[3]} ${match[4]}`}</td>
-                  <td>
-                    <button
-                      className="btn contacts__table-wabtn"
-                      onClick={() =>
-                        window.open(
-                          `https://api.whatsapp.com/send?phone=${contacto.number}&text=`
-                        )
-                      }
-                    >
-                      <i className="bi bi-whatsapp"></i>
-                    </button>
-                    <button className="btn contacts__table-updatebtn">
-                      <i className="bi bi-gear"></i>
-                    </button>
-                    <button
-                      onClick={() => handleDelete(contacto.id)}
-                      className="btn contacts__table-deletebtn"
-                    >
-                      <i className="bi bi-trash"></i>
-                    </button>
-                  </td>
-                </tr>
+                <>
+                  {editContactID === contacto.id ? (
+                    <EditableRow
+                      key={finalID[0]}
+                      contacto={contacto}
+                      finalID={finalID}
+                      handleUpdate={handleUpdate}
+                      handleReadClick={handleReadClick}
+                      handleDelete={handleDelete}
+                    />
+                  ) : (
+                    <ReadOnlyRow
+                      key={contacto.id}
+                      contacto={contacto}
+                      finalID={finalID}
+                      match={match}
+                      handleEditClick={handleEditClick}
+                      handleDelete={handleDelete}
+                    />
+                  )}
+                </>
               );
             })}
           </tbody>

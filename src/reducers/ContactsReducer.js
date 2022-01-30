@@ -10,6 +10,15 @@ export const ContactsReducer = (state = [], action) => {
       }
       return state;
 
+    case "update":
+      const name = action.payload.nameVal;
+      const number = action.payload.numberVal;
+      const pos = action.payload.pos - 1;
+      state[pos].name = name;
+      state[pos].number = number;
+      localStorage.setItem("contactsInfo", JSON.stringify(state));
+      return state;
+
     default:
       return state;
   }

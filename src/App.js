@@ -17,7 +17,12 @@ const App = () => {
     <ThemeProvider theme={themeMode}>
       <Container>
         <GlobalStyle />
-        <Header state={state} dispatch={dispatch} theme={theme} toggleTheme={toggleTheme} />
+        <Header
+          state={state}
+          dispatch={dispatch}
+          theme={theme}
+          toggleTheme={toggleTheme}
+        />
         <Contacts state={state} dispatch={dispatch} />
         <Footer />
       </Container>

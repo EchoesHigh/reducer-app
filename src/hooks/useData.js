@@ -2,7 +2,6 @@ import { useState } from "react";
 import { v4 as uuid } from "uuid";
 
 export const useData = (dispatch, state) => {
-  // console.log(state);
   const inputName = document.getElementById("name");
 
   const inputNumber = document.getElementById("number");
@@ -35,6 +34,24 @@ export const useData = (dispatch, state) => {
     }
   };
 
+  const handleUpdate = (pos, nameInputID, numberInputID) => {
+    const nameID = document.getElementById(nameInputID);
+    const numberID = document.getElementById(numberInputID);
+    const nameValue = nameID.value;
+    const numberValue = numberID.value;
+
+    const updateAction = {
+      type: "update",
+      payload: {
+        pos: pos,
+        nameVal: nameValue,
+        numberVal: numberValue,
+      },
+    };
+
+    dispatch(updateAction);
+  };
+
   const handleDelete = (id) => {
     const deleteAction = {
       type: "delete",
@@ -44,5 +61,5 @@ export const useData = (dispatch, state) => {
     dispatch(deleteAction);
   };
 
-  return [handleChange, handleAdd, handleDelete];
+  return [handleChange, handleAdd, handleDelete, handleUpdate];
 };
