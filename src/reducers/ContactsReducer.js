@@ -19,6 +19,38 @@ export const ContactsReducer = (state = [], action) => {
       localStorage.setItem("contactsInfo", JSON.stringify(state));
       return state;
 
+    case "sortAZ":
+      if (action.payload === "AZ") {
+        state.sort((a, b) => {
+          let nameA = a.name.toUpperCase();
+          let nameB = b.name.toUpperCase();
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+          return 0;
+        });
+      } else if (action.payload === "ZA") {
+        state.sort((a, b) => {
+          let nameA = a.name.toUpperCase();
+          let nameB = b.name.toUpperCase();
+          if (nameA < nameB) {
+            return 1;
+          }
+          if (nameA > nameB) {
+            return -1;
+          }
+          return 0;
+        });
+      }
+      for (let i = 0; i < state.length; i++) {
+        state[i].pos = i + 1;
+      }
+      localStorage.setItem("contactsInfo", JSON.stringify(state));
+      return state;
+
     default:
       return state;
   }

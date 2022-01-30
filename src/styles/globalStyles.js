@@ -50,9 +50,13 @@ export const GlobalStyle = createGlobalStyle`
   .contacts__table-wabtn {
     background-color: ${({ theme }) => theme.waBtnBgc};
   }
+  .contacts__table-checkbtn {
+    background-color: ${({ theme }) => theme.checkBtnBgc};
+  }
   .contacts__table-deletebtn,
   .contacts__table-updatebtn,
-  .contacts__table-wabtn {
+  .contacts__table-wabtn, 
+  .contacts__table-checkbtn {
     color: ${({ theme }) => theme.tableBtnC};
   }
   .contacts__table-circle1,
@@ -86,6 +90,7 @@ export const lightTheme = {
   deleteBtnBgc: "#d62828",
   modifyBtnBgc: "#ffae00",
   waBtnBgc: "#aacc00",
+  checkBtnBgc: "#00cddb",
   tableBtnC: "#212529",
   circlesBg: "linear-gradient(to right bottom, #ffffffb3, #e9c46a4d)",
   circlesBgc: "#ee9b00",
@@ -102,6 +107,7 @@ export const darkTheme = {
   deleteBtnBgc: "#570404",
   modifyBtnBgc: "#7c5500",
   waBtnBgc: "#526300",
+  checkBtnBgc: "#086c74",
   tableBtnC: "#000000",
   circlesBg: "linear-gradient(to right bottom, #0a9396b3, #0030494d)",
   circlesBgc: "#003049",

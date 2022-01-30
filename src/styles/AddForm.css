@@ -288,7 +288,8 @@ button.contacts__navbar-menu_button:hover {
 }
 .contacts__table-deletebtn,
 .contacts__table-updatebtn,
-.contacts__table-wabtn {
+.contacts__table-wabtn,
+.contacts__table-checkbtn {
   font-size: 1.25rem;
   padding: 0.1rem 0.5rem;
   margin: 0 0.25rem;
@@ -296,7 +297,8 @@ button.contacts__navbar-menu_button:hover {
 }
 .contacts__table-deletebtn:hover,
 .contacts__table-updatebtn:hover,
-.contacts__table-wabtn:hover {
+.contacts__table-wabtn:hover,
+.contacts__table-checkbtn:hover {
   color: wheat;
 }
 .contacts__table-circle1,
@@ -395,7 +397,8 @@ button.contacts__navbar-menu_button:hover {
   }
   .contacts__table-deletebtn,
   .contacts__table-updatebtn,
-  .contacts__table-wabtn {
+  .contacts__table-wabtn,
+  .contacts__table-checkbtn {
     font-size: 1.25rem;
     padding: 0.1rem 0.2rem 0 0.2rem;
     margin: 0 0.1rem;
@@ -484,7 +487,8 @@ button.contacts__navbar-menu_button:hover {
   }
   .contacts__table-deletebtn,
   .contacts__table-updatebtn,
-  .contacts__table-wabtn {
+  .contacts__table-wabtn,
+  .contacts__table-checkbtn {
     padding: 0 0.2rem 0 0.2rem;
     margin: 0 0.1rem;
     border-radius: 50%;

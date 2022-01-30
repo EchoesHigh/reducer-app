@@ -34,6 +34,15 @@ export const useData = (dispatch, state) => {
     }
   };
 
+  const handleSort = (sortToggle) => {
+    const sortAZAction = {
+      type: "sortAZ",
+      payload: sortToggle,
+    };
+
+    dispatch(sortAZAction);
+  };
+
   const handleUpdate = (pos, nameInputID, numberInputID) => {
     const nameID = document.getElementById(nameInputID);
     const numberID = document.getElementById(numberInputID);
@@ -61,5 +70,5 @@ export const useData = (dispatch, state) => {
     dispatch(deleteAction);
   };
 
-  return [handleChange, handleAdd, handleDelete, handleUpdate];
+  return [handleChange, handleAdd, handleDelete, handleUpdate, handleSort];
 };

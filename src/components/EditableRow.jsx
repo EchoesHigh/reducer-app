@@ -1,4 +1,5 @@
 import React from "react";
+import { useEdit } from "../hooks/useEdit";
 
 const EditableRow = ({
   contacto,
@@ -7,20 +8,7 @@ const EditableRow = ({
   handleReadClick,
   handleDelete,
 }) => {
-  const handleEditFinished = (e, contacto, nameInputID, numberInputID) => {
-    handleReadClick(e);
-    handleUpdate(contacto.pos, nameInputID, numberInputID);
-  };
-
-  const handleEnterKeyUpdate = (e, contacto, nameInputID, numberInputID) => {
-    if (e.key === "Enter") {
-      handleReadClick(e);
-      handleUpdate(contacto.pos, nameInputID, numberInputID);
-    }
-  };
-
-  const nameInputID = `name${contacto.id}`;
-  const numberInputID = `number${contacto.id}`;
+  const [handleEditFinished, handleEnterKeyUpdate, nameInputID, numberInputID] = useEdit(handleUpdate, handleReadClick, contacto);
 
   return (
     <tr>
@@ -65,7 +53,7 @@ const EditableRow = ({
           onClick={(e) =>
             handleEditFinished(e, contacto, nameInputID, numberInputID)
           }
-          className="btn contacts__table-updatebtn"
+          className="btn contacts__table-checkbtn"
         >
           <i className="bi bi-check2-circle"></i>
         </button>

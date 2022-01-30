@@ -8,11 +8,6 @@ To do list Contacts App - 22/01/2022:
 -Clean inputs once the user clicks "add"					DONE
 -Add EnterKey functionality							DONE
 -Set Media Query CSS for the ContactTable.jsx and the circles (Mobile)		DONE
--Catch error "Uncaught TypeError: Cannot read properties of null 
-(reading 'value')" when trying to add a contact without typing 
-something on the inputs
--Display alert if an input is not filled
--Catch warning "Each child in a list should have a unique "key" prop."
 
 Optionals (?):
 
@@ -20,5 +15,11 @@ Optionals (?):
 -Implement "modify" button and function 					DONE
 -Implement a "WhatsApp" button/icon to open a conversation to that number 	DONE
 -Make aesthetic number value shown						DONE
--Implement a sort by functionality to order the contact table
+-Implement a sort by functionality to order the contact table			DONE
+
 -Set Media Query CSS for Monitors
+-Catch error "Uncaught TypeError: Cannot read properties of null 
+(reading 'value')" when trying to add a contact without typing 
+something on the inputs
+-Display alert if an input is not filled
+-Catch warning "Each child in a list should have a unique "key" prop."

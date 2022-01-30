@@ -1,22 +1,15 @@
 import React, { useState } from "react";
 import { useData } from "../hooks/useData";
+import { useSort } from "../hooks/useSort";
 import EditableRow from "./EditableRow";
 import ReadOnlyRow from "./ReadOnlyRow";
 
 const ContactTable = ({ contactos = [], dispatch }) => {
-  const [, , handleDelete, handleUpdate] = useData(dispatch);
+  const [, , handleDelete, handleUpdate, handleSort] = useData(dispatch);
 
   const [editContactID, setEditContactID] = useState(null);
 
-  const handleEditClick = (e, contacto) => {
-    e.preventDefault();
-    setEditContactID(contacto.id);
-  };
-
-  const handleReadClick = (e) => {
-    e.preventDefault();
-    setEditContactID(null);
-  };
+  const [sortToggle, handleSortClick, handleEditClick, handleReadClick] = useSort(handleSort, setEditContactID);
 
   return (
     <div>
@@ -26,7 +19,27 @@ const ContactTable = ({ contactos = [], dispatch }) => {
             <tr>
               <th>#</th>
               <th className="contacts__table-data_ID">ID</th>
-              <th>Name</th>
+              <th>
+                {sortToggle === "AZ" ? (
+                  <i
+                    className="bi bi-sort-alpha-down"
+                    style={{ fontStyle: "normal" }}
+                    onClick={handleSortClick}
+                  >
+                    {" "}
+                    Name
+                  </i>
+                ) : (
+                  <i
+                    className="bi bi-sort-alpha-up-alt"
+                    style={{ fontStyle: "normal" }}
+                    onClick={handleSortClick}
+                  >
+                    {" "}
+                    Name
+                  </i>
+                )}
+              </th>
               <th>Number</th>
               <th>Action</th>
             </tr>
@@ -34,8 +47,6 @@ const ContactTable = ({ contactos = [], dispatch }) => {
           <tbody>
             {contactos.map((contacto) => {
               const finalID = contacto.id.split("-");
-              console.log(finalID[0]);
-              console.log(contacto.id);
               const match = contacto.number.match(
                 /^(\d{2})(\d{2})(\d{4})(\d{4})$/
               );
