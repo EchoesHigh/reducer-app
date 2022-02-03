@@ -7,7 +7,7 @@ const Contacts = ({ state, dispatch }) => {
   return (
     <div className="contacts__background">
       <div
-        className="container mt-3"
+        className="container mt-3 contacts__table-container"
         style={{ minHeight: `${desiredHeight}px` }}
       >
         <ContactTable contactos={state} dispatch={dispatch} />

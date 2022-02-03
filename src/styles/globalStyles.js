@@ -13,6 +13,19 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colorI};
     transition: all 0.5s linear;
   }
+  .contacts__navbar-menu_input-warning {
+    color: ${({ theme }) => theme.animationInputFinalc};
+    animation-name: fadeinInput;
+    animation-duration: 1.5s;
+  }
+  @keyframes fadeinInput {
+    from {
+      color: ${({ theme }) => theme.animationInputInitialc};
+    }
+    to {
+      color: ${({ theme }) => theme.animationInputFinalc};
+    }
+  }
   .contacts__navbar-menu_button {
     color: ${({ theme }) => theme.colorI};
     transition: all 0.5s linear;
@@ -41,6 +54,18 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.tableDataEditBgc};
     transition: all 0.5s linear;
   }
+  .contacts__table-data_editable-warning {
+  animation-name: fadein;
+  animation-duration: 1.5s;
+  }
+  @keyframes fadein {
+    from {
+      color: ${({ theme }) => theme.animationInitialc};
+    }
+    to {
+      color: ${({ theme }) => theme.tableData};
+    }
+  }
   .contacts__table-deletebtn {
     background-color: ${({ theme }) => theme.deleteBtnBgc};
   }
@@ -61,7 +86,17 @@ export const GlobalStyle = createGlobalStyle`
   }
   .contacts__table-circle1,
   .contacts__table-circle2,
-  .contacts__table-circle3 {
+  .contacts__table-circle3,
+  .contacts__table-circle4,
+  .contacts__table-circle5,
+  .contacts__table-circle6,
+  .contacts__table-circle7,
+  .contacts__table-circle8,
+  .contacts__table-circle9,
+  .contacts__table-circle10,
+  .contacts__table-circle11,
+  .contacts__table-circle12,
+  .contacts__table-circle13 {
     background: ${({ theme }) => theme.circlesBg};
     background-color: ${({ theme }) => theme.circlesBgc};
     transition: all 0.5s linear;
@@ -81,12 +116,15 @@ export const GlobalStyle = createGlobalStyle`
 
 export const lightTheme = {
   colorI: "white !important",
+  animationInputInitialc: "rgba(255, 255, 255, 0)",
+  animationInputFinalc: "white",
   bgcolor: "#e9d8a6",
   tableBg: "#ffffff4d",
   tableHoverC: "#212529 !important",
   tableHoverBgc: "rgba(0, 0, 0, 0.075) !important",
   tableData: "black",
   tableDataEditBgc: "rgba(175, 175, 55, 0.25)",
+  animationInitialc: "rgba(0, 0, 0, 0)",
   deleteBtnBgc: "#d62828",
   modifyBtnBgc: "#ffae00",
   waBtnBgc: "#aacc00",
@@ -98,12 +136,15 @@ export const lightTheme = {
 
 export const darkTheme = {
   colorI: "wheat !important",
+  animationInputInitialc: "rgba(245, 222, 179, 0)",
+  animationInputFinalc: "wheat",
   bgcolor: "#011627",
   tableBg: "#0000004d",
   tableHoverC: "wheat !important",
   tableHoverBgc: "rgba(245, 222, 179, 0.075) !important",
   tableData: "wheat",
   tableDataEditBgc: "rgba(255, 255, 255, 0.25)",
+  animationInitialc: "rgba(245, 222, 179, 0)",
   deleteBtnBgc: "#570404",
   modifyBtnBgc: "#7c5500",
   waBtnBgc: "#526300",

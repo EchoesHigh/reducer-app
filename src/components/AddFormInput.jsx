@@ -1,5 +1,6 @@
 import React from "react";
 import { useInput } from "../hooks/useInput";
+import { useWarning } from "../hooks/useWarning";
 
 const AddFormInput = ({ path, input, ph, name, onInput, type, onKeyUp }) => {
   const [changeInput, handleEnterKey, code] = useInput(
@@ -9,6 +10,8 @@ const AddFormInput = ({ path, input, ph, name, onInput, type, onKeyUp }) => {
     onInput,
     onKeyUp
   );
+
+  const [warning, handleMaxLength] = useWarning(type);
 
   return (
     <div>
@@ -36,7 +39,13 @@ const AddFormInput = ({ path, input, ph, name, onInput, type, onKeyUp }) => {
           name={`${name}`}
           onKeyUp={handleEnterKey}
           placeholder={ph === "NUMBER" ? `${code}` : ""}
+          onChangeCapture={handleMaxLength}
         />
+        {warning && (
+          <p className="contacts__navbar-menu_input-warning">
+            Maximum 15 Digits
+          </p>
+        )}
       </div>
     </div>
   );

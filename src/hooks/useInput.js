@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Easing } from "react-native";
 
 export const useInput = (pathId, inputId, phId, onInput, onKeyUp) => {
-  // const code = "With Country Code (E.g. +52)"
   const [code, setCode] = useState("");
 
   const changeInput = (e) => {

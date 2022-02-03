@@ -1,5 +1,7 @@
 import React from "react";
 import { useEdit } from "../hooks/useEdit";
+import { SizeMe } from "react-sizeme";
+import { useWarning } from "../hooks/useWarning";
 
 const EditableRow = ({
   contacto,
@@ -8,10 +10,13 @@ const EditableRow = ({
   handleReadClick,
   handleDelete,
 }) => {
-  const [handleEditFinished, handleEnterKeyUpdate, nameInputID, numberInputID] = useEdit(handleUpdate, handleReadClick, contacto);
+  const [handleEditFinished, handleEnterKeyUpdate, nameInputID, numberInputID] =
+    useEdit(handleUpdate, handleReadClick, contacto);
+
+  const [warning, handleMaxLength] = useWarning("number");
 
   return (
-    <tr>
+    <tr key={finalID[1]}>
       <th className="contacts__table-data_pos">{contacto.pos}</th>
       <th className="contacts__table-data_ID">{finalID[0]}</th>
       <td className="contacts__table-data_name">
@@ -19,6 +24,7 @@ const EditableRow = ({
           className="contacts__table-data_editable"
           type="text"
           required="required"
+          autoComplete="off"
           defaultValue={contacto.name}
           id={nameInputID}
           onKeyUp={(e) =>
@@ -26,18 +32,32 @@ const EditableRow = ({
           }
         ></input>
       </td>
-      <td className="contacts__table-data_number">
-        <input
-          className="contacts__table-data_editable"
-          type="number"
-          required="required"
-          defaultValue={contacto.number}
-          id={numberInputID}
-          onKeyUp={(e) =>
-            handleEnterKeyUpdate(e, contacto, nameInputID, numberInputID)
-          }
-        ></input>
-      </td>
+      <SizeMe>
+        {({ size }) => (
+          <td className="contacts__table-data_number">
+            <input
+              className="contacts__table-data_editable"
+              type="number"
+              required="required"
+              autoComplete="off"
+              defaultValue={contacto.number}
+              id={numberInputID}
+              onKeyUp={(e) =>
+                handleEnterKeyUpdate(e, contacto, nameInputID, numberInputID)
+              }
+              onChange={handleMaxLength}
+            ></input>
+            {warning && (
+              <p
+                className="contacts__table-data_editable-warning"
+                style={{ width: `${size.width}px` }}
+              >
+                Maximum 15 Digits
+              </p>
+            )}
+          </td>
+        )}
+      </SizeMe>
       <td className="contacts__table-data_btns">
         <button
           className="btn contacts__table-wabtn"

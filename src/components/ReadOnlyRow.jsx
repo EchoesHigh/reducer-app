@@ -8,7 +8,7 @@ const ReadOnlyRow = ({
   handleDelete,
 }) => {
   return (
-    <tr>
+    <tr key={finalID[2]}>
       <th className="contacts__table-data_pos">{contacto.pos}</th>
       <th className="contacts__table-data_ID">{finalID[0]}</th>
       <td className="contacts__table-data_name">{contacto.name}</td>

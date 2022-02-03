@@ -17,6 +17,7 @@ Optionals (?):
 -Make aesthetic number value shown						DONE
 -Implement a sort by functionality to order the contact table			DONE
 
+
 -Set Media Query CSS for Monitors
 -Catch error "Uncaught TypeError: Cannot read properties of null 
 (reading 'value')" when trying to add a contact without typing 

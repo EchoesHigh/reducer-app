@@ -10,16 +10,15 @@ const ContactTable = ({ contactos = [], dispatch }) => {
   const [editContactID, setEditContactID] = useState(null);
 
   const [sortToggle, handleSortClick, handleEditClick, handleReadClick] = useSort(handleSort, setEditContactID);
-
   return (
     <div>
       <div className="contacts__table">
         <table className="table table-hover align-middle contacts__table-data">
           <thead>
             <tr>
-              <th>#</th>
+              <th className="contacts__table-data_pos">#</th>
               <th className="contacts__table-data_ID">ID</th>
-              <th>
+              <th className="contacts__table-data_name">
                 {sortToggle === "AZ" ? (
                   <i
                     className="bi bi-sort-alpha-down"
@@ -40,8 +39,8 @@ const ContactTable = ({ contactos = [], dispatch }) => {
                   </i>
                 )}
               </th>
-              <th>Number</th>
-              <th>Action</th>
+              <th className="contacts__table-data_number">Number</th>
+              <th className="contacts__table-data_btns">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -80,6 +79,16 @@ const ContactTable = ({ contactos = [], dispatch }) => {
       <div className="contacts__table-circle1"></div>
       <div className="contacts__table-circle2"></div>
       <div className="contacts__table-circle3"></div>
+      <div className="contacts__table-circle4"></div>
+      <div className="contacts__table-circle5"></div>
+      <div className="contacts__table-circle6"></div>
+      <div className="contacts__table-circle7"></div>
+      <div className="contacts__table-circle8"></div>
+      <div className="contacts__table-circle9"></div>
+      <div className="contacts__table-circle10"></div>
+      <div className="contacts__table-circle11"></div>
+      <div className="contacts__table-circle12"></div>
+      <div className="contacts__table-circle13"></div>
     </div>
   );
 };
