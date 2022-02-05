@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { useData } from "../hooks/useData";
 import { useSort } from "../hooks/useSort";
 import EditableRow from "./EditableRow";
@@ -9,7 +9,9 @@ const ContactTable = ({ contactos = [], dispatch }) => {
 
   const [editContactID, setEditContactID] = useState(null);
 
-  const [sortToggle, handleSortClick, handleEditClick, handleReadClick] = useSort(handleSort, setEditContactID);
+  const [sortToggle, handleSortClick, handleEditClick, handleReadClick] =
+    useSort(handleSort, setEditContactID);
+
   return (
     <div>
       <div className="contacts__table">
@@ -50,10 +52,10 @@ const ContactTable = ({ contactos = [], dispatch }) => {
                 /^(\d{2})(\d{2})(\d{4})(\d{4})$/
               );
               return (
-                <>
+                <Fragment key={finalID}>
                   {editContactID === contacto.id ? (
                     <EditableRow
-                      key={finalID[0]}
+                      key={contacto.number}
                       contacto={contacto}
                       finalID={finalID}
                       handleUpdate={handleUpdate}
@@ -70,7 +72,7 @@ const ContactTable = ({ contactos = [], dispatch }) => {
                       handleDelete={handleDelete}
                     />
                   )}
-                </>
+                </Fragment>
               );
             })}
           </tbody>

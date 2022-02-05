@@ -2,13 +2,25 @@ import React from "react";
 import { useInput } from "../hooks/useInput";
 import { useWarning } from "../hooks/useWarning";
 
-const AddFormInput = ({ path, input, ph, name, onInput, type, onKeyUp }) => {
+const AddFormInput = ({
+  path,
+  input,
+  ph,
+  name,
+  onInput,
+  type,
+  onKeyUp,
+  caption,
+  setCaption,
+}) => {
   const [changeInput, handleEnterKey, code] = useInput(
     path,
     input,
     ph,
     onInput,
-    onKeyUp
+    onKeyUp,
+    caption,
+    setCaption
   );
 
   const [warning, handleMaxLength] = useWarning(type);
@@ -38,7 +50,7 @@ const AddFormInput = ({ path, input, ph, name, onInput, type, onKeyUp }) => {
           onChange={changeInput}
           name={`${name}`}
           onKeyUp={handleEnterKey}
-          placeholder={ph === "NUMBER" ? `${code}` : ""}
+          placeholder={ph === "NUMBER" && caption ? `${code}` : ""}
           onChangeCapture={handleMaxLength}
         />
         {warning && (

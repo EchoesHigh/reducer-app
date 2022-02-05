@@ -1,7 +1,15 @@
 import { useEffect, useState } from "react";
 import { Easing } from "react-native";
 
-export const useInput = (pathId, inputId, phId, onInput, onKeyUp) => {
+export const useInput = (
+  pathId,
+  inputId,
+  phId,
+  onInput,
+  onKeyUp,
+  caption,
+  setCaption
+) => {
   const [code, setCode] = useState("");
 
   const changeInput = (e) => {
@@ -27,6 +35,9 @@ export const useInput = (pathId, inputId, phId, onInput, onKeyUp) => {
         ph.classList.remove("return");
         ph.classList.add("expand");
         setCode("With Country Code (E.g. +52)");
+        if (phId === "NUMBER") {
+          setCaption(true);
+        }
         window.requestAnimationFrame(step);
       }
     });
@@ -35,6 +46,7 @@ export const useInput = (pathId, inputId, phId, onInput, onKeyUp) => {
         ph.classList.remove("expand");
         ph.classList.add("return");
         setCode("");
+        setCaption(false);
         path.setAttribute("d", `m 2 18 C 10 1 380 50 310 10`);
       }
     });

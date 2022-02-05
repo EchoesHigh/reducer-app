@@ -30,6 +30,23 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colorI};
     transition: all 0.5s linear;
   }
+  .contacts__navbar-menu_button {
+    border: 1px solid ${({ theme }) => theme.modifyBtnBgc};
+  }
+  .contacts__navbar-menu_button-incomplete {
+    border: 1px solid ${({ theme }) => theme.deleteBtnBgc};
+    color: ${({ theme }) => theme.btnIncompletec};
+    background: ${({ theme }) => theme.btnIncompleteBgc};
+    transition: all 0.5s linear;
+  }
+  .contacts__navbar-menu_button-animation {
+    background-color: ${({ theme }) => theme.modifyBtnBgc};
+    transition: all 0.5s linear;
+  }
+  .contacts__navbar-menu_button-animation_incomplete {
+    background-color: ${({ theme }) => theme.deleteBtnBgc};
+    transition: all 0.5s linear;
+  }
   .contacts__background {
     background-color: ${({ theme }) => theme.bgcolor};
     transition: all 0.5s linear;
@@ -118,6 +135,8 @@ export const lightTheme = {
   colorI: "white !important",
   animationInputInitialc: "rgba(255, 255, 255, 0)",
   animationInputFinalc: "white",
+  btnIncompletec: "#d62828",
+  btnIncompleteBgc: "rgb(0, 0, 0)",
   bgcolor: "#e9d8a6",
   tableBg: "#ffffff4d",
   tableHoverC: "#212529 !important",
@@ -138,6 +157,8 @@ export const darkTheme = {
   colorI: "wheat !important",
   animationInputInitialc: "rgba(245, 222, 179, 0)",
   animationInputFinalc: "wheat",
+  btnIncompletec: "#9b0000",
+  btnIncompleteBgc: "rgb(0, 0, 0)",
   bgcolor: "#011627",
   tableBg: "#0000004d",
   tableHoverC: "wheat !important",

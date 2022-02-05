@@ -169,11 +169,29 @@ input[type="number"] {
   font-size: 11px;
   letter-spacing: 1px;
   font-weight: normal;
-  border: 1px solid #ffbb00;
+  transform: scale(1.005, 1.005);
+}
+.contacts__navbar-menu_button-incomplete {
+  -webkit-mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png");
+  mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png");
+  -webkit-mask-size: 2300% 100%;
+  mask-size: 2300% 100%;
+  border: none;
+  cursor: pointer;
+  -webkit-animation: ani2 0.7s steps(22) forwards;
+  animation: ani2 0.7s steps(22) forwards;
+  width: 101%;
+  height: 101%;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: 1px;
+  font-weight: normal;
   transform: scale(1.005, 1.005);
 }
 
-button.contacts__navbar-menu_button:hover {
+button.contacts__navbar-menu_button:hover,
+button.contacts__navbar-menu_button-incomplete:hover {
   -webkit-animation: ani 0.7s steps(22) forwards;
   animation: ani 0.7s steps(22) forwards;
 }
@@ -195,7 +213,20 @@ button.contacts__navbar-menu_button:hover {
   font-weight: 300;
   font-size: 11px;
   letter-spacing: 1px;
-  background-color: #ffbb00;
+  border: 1px solid black;
+  transform: scale(0.995, 0.985);
+}
+.contacts__navbar-menu_button-animation_incomplete {
+  position: absolute;
+  color: black;
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+  font-weight: normal;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: 1px;
   border: 1px solid black;
   transform: scale(0.995, 0.985);
 }
@@ -429,7 +460,8 @@ button.contacts__navbar-menu_button:hover {
 
 /* Media query */
 /* Phones */
-@media only screen and (min-width: 220px) and (max-width: 319px) {
+/* and (min-width: 220px)  */
+@media only screen and (max-width: 319px) {
   * {
     font-size: 0.7rem !important;
   }
@@ -651,7 +683,7 @@ button.contacts__navbar-menu_button:hover {
     transform: scale(0.7);
   }
   .contacts__footer-icons_border {
-    width: 30px;
+    width: 2.25rem !important;
   }
   .contacts__footer-credits {
     font-size: 0.9rem !important;
@@ -661,9 +693,12 @@ button.contacts__navbar-menu_button:hover {
 }
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
+  * {
+    font-size: 0.85rem !important;
+  }
   .contacts__header {
-    height: 65px;
-    max-height: 65px;
+    height: 55px;
+    max-height: 55px;
     padding: 0 !important;
   }
   .contacts__header-title_container {
@@ -697,9 +732,16 @@ button.contacts__navbar-menu_button:hover {
     max-width: 3.25rem !important;
   }
   .contacts__table-data_btns {
-    min-width: 3rem !important;
-    width: 3rem !important;
-    max-width: 3rem !important;
+    min-width: 2.5rem !important;
+    width: 2.5rem !important;
+    max-width: 2.5rem !important;
+  }
+  .contacts__table-deletebtn,
+  .contacts__table-updatebtn,
+  .contacts__table-wabtn,
+  .contacts__table-checkbtn {
+    padding: 0.05rem 0.35rem 0 0.35rem;
+    margin: 0 0.1rem;
   }
   .contacts__table-data_ID {
     display: none;
@@ -717,11 +759,14 @@ button.contacts__navbar-menu_button:hover {
     right: 90%;
   }
   .contacts__footer {
-    height: 105px;
-    max-height: 105px;
+    height: 90px;
+    max-height: 90px;
   }
   .contacts__footer-icons_container {
     padding-top: 0.5rem !important;
+  }
+  .contacts__footer-icons_border {
+    width: 2.5rem !important;
   }
   .contacts__footer-icons {
     margin-bottom: 0 !important;
@@ -914,6 +959,12 @@ button.contacts__navbar-menu_button:hover {
 
 /* 4K 3840 x 2160 */
 @media only screen and (min-width: 3840px) and (max-width: 7679px) {
+  .contacts__header {
+    padding: 0 60rem;
+  }
+  .contacts__navbar-menu {
+    right: 60rem;
+  }
   .contacts__table-data_ID {
     min-width: 3rem !important;
     width: 3rem !important;
@@ -957,6 +1008,12 @@ button.contacts__navbar-menu_button:hover {
 
 /* 8K 7680 x 4320 */
 @media only screen and (min-width: 7680px) {
+  .contacts__header {
+    padding: 0 185rem;
+  }
+  .contacts__navbar-menu {
+    right: 185rem;
+  }
   .contacts__table-data_ID {
     min-width: 3.5rem !important;
     width: 3.5rem !important;

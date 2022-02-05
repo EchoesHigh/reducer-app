@@ -16,7 +16,7 @@ const EditableRow = ({
   const [warning, handleMaxLength] = useWarning("number");
 
   return (
-    <tr key={finalID[1]}>
+    <tr>
       <th className="contacts__table-data_pos">{contacto.pos}</th>
       <th className="contacts__table-data_ID">{finalID[0]}</th>
       <td className="contacts__table-data_name">
@@ -32,32 +32,34 @@ const EditableRow = ({
           }
         ></input>
       </td>
-      <SizeMe>
-        {({ size }) => (
-          <td className="contacts__table-data_number">
-            <input
-              className="contacts__table-data_editable"
-              type="number"
-              required="required"
-              autoComplete="off"
-              defaultValue={contacto.number}
-              id={numberInputID}
-              onKeyUp={(e) =>
-                handleEnterKeyUpdate(e, contacto, nameInputID, numberInputID)
-              }
-              onChange={handleMaxLength}
-            ></input>
-            {warning && (
-              <p
-                className="contacts__table-data_editable-warning"
-                style={{ width: `${size.width}px` }}
-              >
-                Maximum 15 Digits
-              </p>
-            )}
-          </td>
-        )}
-      </SizeMe>
+      <td className="contacts__table-data_number">
+        <SizeMe>
+          {({ size }) => (
+            <div>
+              <input
+                className="contacts__table-data_editable"
+                type="number"
+                required="required"
+                autoComplete="off"
+                defaultValue={contacto.number}
+                id={numberInputID}
+                onKeyUp={(e) =>
+                  handleEnterKeyUpdate(e, contacto, nameInputID, numberInputID)
+                }
+                onChange={handleMaxLength}
+              ></input>
+              {warning && (
+                <p
+                  className="contacts__table-data_editable-warning"
+                  style={{ width: `${size.width}px` }}
+                >
+                  Maximum 15 Digits
+                </p>
+              )}
+            </div>
+          )}
+        </SizeMe>
+      </td>
       <td className="contacts__table-data_btns">
         <button
           className="btn contacts__table-wabtn"
