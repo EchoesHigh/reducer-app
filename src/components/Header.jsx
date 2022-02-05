@@ -24,7 +24,7 @@ const Header = ({ state, dispatch, theme, toggleTheme }) => {
           )}
         </div>
         <h1 className="navbar-brand mb-0 h1 px-3 py-3 contacts__header-title">
-          Contacts App
+          Agenda
         </h1>
       </div>
       <div className="px-4 d-flex">
